@@ -63,7 +63,7 @@ jobs:
         shell: bash
         run: |
           cd nuclide
-          # export PATH=$PATH:$GITHUB_WORKSPACE/nuclide/
+          export PATH=$PATH:$GITHUB_WORKSPACE/nuclide/
 
           # Build and Pack it to .pk*
           # make dist-pak NAME=bin GAME=valve
