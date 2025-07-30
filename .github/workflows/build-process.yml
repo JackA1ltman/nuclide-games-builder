@@ -36,6 +36,12 @@ jobs:
           ## Pull latest
           make update
 
+          # Get FTEQCC
+          mkdir ThirdParty
+          git clone https://github.com/fte-team/fteqw.git ThirdParty/fteqw
+          ## Build FTEQCC
+          make fteqcc
+
           # Get Games
           if [[ "${{ inputs.game_name }}" == "valve" ]]; then
             git clone https://code.idtech.space/"${{ inputs.game_repo }}".git "${{ inputs.game_name }}"
