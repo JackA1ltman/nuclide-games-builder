@@ -15,9 +15,6 @@ on:
       game_branch:
         required: false
         type: string
-      game_plugins:
-        required: false
-        type: string
 
 jobs:
   build-nuclide-sdk-games:
@@ -27,9 +24,8 @@ jobs:
     steps:
       - name: Install necessary packages
         run: |
-          sudo apt update
+          # sudo apt update
           # sudo apt install git make gcc -y
-          sudo apt install libpng-dev -y
           # sudo apt install libpng-dev mesa-common-dev libvulkan-dev  libxtst-dev libxss-dev libxrandr-dev libxcursor-dev libasound2-dev libatopology-dev libjpeg-dev libspeex-dev libspeexdsp-dev libopus-dev libvorbis-dev libsdl2-dev autoconf automake libtool libavformat-dev libswscale-dev -y
 
       - name: Git Games from repo
@@ -62,10 +58,6 @@ jobs:
 
 
           # Build and Pack it to .pk*
-          make game GAME="${{ inputs.game_name }}"
-          if [[ "${{ inputs.game_plugins }}" == "true" ]]; then
-            make plugins GAME="${{ inputs.game_name }}"
-          fi
           make dist-pak NAME=bin GAME="${{ inputs.game_name }}"
 
 

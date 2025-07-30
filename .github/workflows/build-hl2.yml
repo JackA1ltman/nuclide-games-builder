@@ -16,4 +16,3 @@ jobs:
     with:
       game_repo: "fn/hl2"
       game_name: "hl2"
-      game_plugins: "true"
