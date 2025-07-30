@@ -1,0 +1,18 @@
+name: Build Team Fortress
+
+permissions:
+  contents: write
+  actions: write
+
+on:
+  workflow_call:
+
+jobs:
+  build-tfc:
+    strategy:
+      fail-fast: true
+    uses: ./.github/workflows/build-process.yml
+    secrets: inherit
+    with:
+      game_repo: "fn/tfc"
+      game_name: "tfc"
