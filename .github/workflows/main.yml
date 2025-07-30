@@ -63,7 +63,7 @@ jobs:
       - build-valve
     env:
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      RELEASE_NAME: "Nuclide SDK Engine"
+      RELEASE_NAME: "Nuclide SDK Games"
       RELEASE_BODY:
     steps:
       - name: Checkout code
@@ -80,6 +80,8 @@ jobs:
 
             echo "New tag: $NEW_TAG"
             echo "NEW_TAG=${NEW_TAG}" >> $GITHUB_ENV
+            TIME=$(date +"%Y-%m-%d %H:%M.%S")
+            echo "TIME=$TIME" >> $GITHUB_ENV
 
             git tag $NEW_TAG
             git push origin $NEW_TAG
@@ -93,7 +95,13 @@ jobs:
         run: |
           cat << 'EOF' > release_body.md
 
-          testing release
+          | Games | Codename |
+          |-----------|-----------|
+          | Half-Life | valve |
+          | Half-Life 2 | hl2 |
+          | Team Fortress Classic | tfc |
+          | Gunslinger Saga | rewolf |
+
           EOF
 
       - name: Create GitHub Release
@@ -102,7 +110,7 @@ jobs:
           tag_name: ${{ env.NEW_TAG }}
           prerelease: ${{ inputs.release_type == 'Pre-Release' }}
           files: ""
-          name: ${{ env.RELEASE_NAME }}
+          name: ${{ env.RELEASE_NAME }}-${{ env.TIME }}"
           body_path: release_body.md
 
       - name: Upload Release Assets
