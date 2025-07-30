@@ -24,17 +24,17 @@ jobs:
     steps:
       - name: Install necessary packages
         run: |
-          sudo apt update
-          sudo apt install git make gcc pkg-config -y
-          sudo apt install libpng-dev mesa-common-dev libvulkan-dev  libxtst-dev libxss-dev libxrandr-dev libxcursor-dev libasound2-dev libatopology-dev libjpeg-dev libspeex-dev libspeexdsp-dev libopus-dev libvorbis-dev libsdl2-dev autoconf automake libtool libavformat-dev libswscale-dev -y
+          # sudo apt update
+          # sudo apt install git make gcc pkg-config -y
+          # sudo apt install libpng-dev mesa-common-dev libvulkan-dev  libxtst-dev libxss-dev libxrandr-dev libxcursor-dev libasound2-dev libatopology-dev libjpeg-dev libspeex-dev libspeexdsp-dev libopus-dev libvorbis-dev libsdl2-dev autoconf automake libtool libavformat-dev libswscale-dev -y
 
       - name: Git Games from repo
         run: |
-          # Get Nuclide SDK (eukara edition)
-          git clone https://code.idtech.space/eukara/nuclide.git nuclide
+          # Get Nuclide SDK (official edition)
+          git clone https://code.idtech.space/vera/nuclide.git -b Develop nuclide
           cd nuclide
           ## Checkout
-          git checkout 3114c1cef1
+          # git checkout 3114c1cef1
 
           # Get FTEQCC
           mkdir ThirdParty
@@ -43,15 +43,15 @@ jobs:
           cd ThirdParty/fteqw
           git checkout 5662b3a
           cd ../../
-          ## Build FTEQW
-          make fteqw
+          ## Build FTEQCC
+          make fteqcc
 
           # Get Games
-          git clone https://code.idtech.space/fn/valve.git valve
+          git clone https://code.idtech.space/fn/valve.git -b Develop valve
           ## Checkout
-          cd valve
-          git checkout 3924d63fcc
-          cd ../
+          # cd valve
+          # git checkout 3924d63fcc
+          # cd ../
           if [[ -f "${{ inputs.game_branch }}" ]]; then
               git clone https://code.idtech.space/"${{ inputs.game_repo }}".git -b "${{ inputs.game_branch }}" "${{ inputs.game_name }}"
           else
