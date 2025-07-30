@@ -6,6 +6,9 @@ permissions:
 
 on:
   workflow_dispatch:
+    schedule:
+        - cron: '0 3 * * 3'
+
     inputs:
       build-valve:
         description: 'Build Half-Life ?'
@@ -16,17 +19,17 @@ on:
         description: 'Build Half-Life 2 ?'
         required: true
         type: boolean
-        default: false
+        default: true
       build-tfc:
         description: 'Build Team Fortress ?'
         required: true
         type: boolean
-        default: false
+        default: true
       build-rewolf:
         description: 'Build Gunslinger Saga ?'
         required: true
         type: boolean
-        default: false
+        default: true
 
 jobs:
   build-valve:
