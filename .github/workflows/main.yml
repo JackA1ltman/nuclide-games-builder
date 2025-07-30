@@ -30,6 +30,11 @@ on:
         required: true
         type: boolean
         default: true
+      build-cstrike:
+        description: 'Build Counter-Strike 1.5 ?'
+        required: true
+        type: boolean
+        default: true
 
 jobs:
   build-valve:
@@ -59,6 +64,13 @@ jobs:
     strategy:
       fail-fast: true
     if: ${{ inputs.build-rewolf }}
+
+  build-cstrike:
+    uses: ./.github/workflows/build-cstrike.yml
+    secrets: inherit
+    strategy:
+      fail-fast: true
+    if: ${{ inputs.build-cstrike }}
 
   release:
     runs-on: ubuntu-latest

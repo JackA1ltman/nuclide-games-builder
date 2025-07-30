@@ -1,0 +1,75 @@
+name: Build Process Outdated
+permissions:
+  contents: write
+  actions: write
+
+on:
+  workflow_call:
+    inputs:
+      game_repo:
+        required: true
+        type: string
+      game_name:
+        required: true
+        type: string
+      game_branch:
+        required: false
+        type: string
+
+jobs:
+  build-nuclide-sdk-games:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+
+    steps:
+      - name: Install necessary packages
+        run: |
+          # sudo apt update
+          # sudo apt install git make gcc -y
+          # sudo apt install libpng-dev mesa-common-dev libvulkan-dev  libxtst-dev libxss-dev libxrandr-dev libxcursor-dev libasound2-dev libatopology-dev libjpeg-dev libspeex-dev libspeexdsp-dev libopus-dev libvorbis-dev libsdl2-dev autoconf automake libtool libavformat-dev libswscale-dev -y
+
+      - name: Git Games from repo
+        run: |
+          # Get Nuclide SDK (eukara edition)
+          git clone https://code.idtech.space/eukara/nuclide.git nuclide
+          cd nuclide
+          ## Checkout
+          git checkout 3114c1cef1
+
+          # Get FTEQCC
+          mkdir ThirdParty
+          git clone https://github.com/fte-team/fteqw.git ThirdParty/fteqw
+          ## Checkout
+          cd ThirdParty/fteqw
+          git checkout 5662b3a
+          cd ../../
+          ## Build FTEQCC
+          make fteqcc
+          export PATH=$PATH:$GITHUB_WORKSPACE/nuclide/
+
+          # Get Games
+          git clone https://code.idtech.space/fn/valve.git valve
+          ## Checkout
+          cd valve
+          git checkout b0b370c9e1
+          cd ../
+          if [[ -f "${{ inputs.game_branch }}" ]]; then
+              git clone https://code.idtech.space/"${{ inputs.game_repo }}".git -b "${{ inputs.game_branch }}" "${{ inputs.game_name }}"
+          else
+              git clone https://code.idtech.space/"${{ inputs.game_repo }}".git "${{ inputs.game_name }}"
+          fi
+
+      - name: Build Games
+        run: |
+          cd nuclide
+
+          # Build and Pack it to .pk*
+          make dist-pak NAME=bin GAME="${{ inputs.game_name }}"
+
+
+      - name: Upload Build Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: game-${{ inputs.game_name }}
+          path: |
+            nuclide/build/bin-content/${{ inputs.game_name }}/*.pk*
