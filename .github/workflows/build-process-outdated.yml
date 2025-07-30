@@ -64,6 +64,7 @@ jobs:
           export PATH=$PATH:$GITHUB_WORKSPACE/nuclide/
 
           # Build and Pack it to .pk*
+          make dist-pak NAME=bin GAME=valve
           make dist-pak NAME=bin GAME="${{ inputs.game_name }}"
 
 
