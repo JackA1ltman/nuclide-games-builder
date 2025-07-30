@@ -1,0 +1,18 @@
+name: Build The Specialists
+
+permissions:
+  contents: write
+  actions: write
+
+on:
+  workflow_call:
+
+jobs:
+  build-valve:
+    strategy:
+      fail-fast: true
+    uses: ./.github/workflows/build-process.yml
+    secrets: inherit
+    with:
+      game_repo: "fn/ts"
+      game_name: "ts"

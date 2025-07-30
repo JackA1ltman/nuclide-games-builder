@@ -35,6 +35,16 @@ on:
         required: true
         type: boolean
         default: false
+      build-ts:
+        description: 'Build The Specialists ?'
+        required: true
+        type: boolean
+        default: false
+      build-hunger:
+        description: 'Build They Hunger ?'
+        required: true
+        type: boolean
+        default: false
 
 jobs:
   build-valve:
@@ -71,6 +81,20 @@ jobs:
     strategy:
       fail-fast: true
     if: ${{ inputs.build-cstrike }}
+
+  build-ts:
+    uses: ./.github/workflows/build-ts.yml
+    secrets: inherit
+    strategy:
+      fail-fast: true
+    if: ${{ inputs.build-ts }}
+
+  build-hunger:
+    uses: ./.github/workflows/build-hunger.yml
+    secrets: inherit
+    strategy:
+      fail-fast: true
+    if: ${{ inputs.build-hunger }}
 
   release:
     runs-on: ubuntu-latest
