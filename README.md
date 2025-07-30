@@ -1,5 +1,5 @@
 # Games automatic builder (from Nuclide SDK)
-This project will automate the compilation of games or engines built using QuakeC language and the Nuclide SDK, and automatically generate and publish .pk files*. (This does not include any game resource files; please extract those from legitimate games.)  
+This project will automate the compilation of games or engines built using QuakeC language and the Nuclide SDK, and automatically generate and publish .pk* files. (This does not include any game resource files; please extract those from legitimate games.)  
 
 ## How to play it
 **Normal Steps**:  
