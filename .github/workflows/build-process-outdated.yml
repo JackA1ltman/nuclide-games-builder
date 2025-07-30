@@ -43,8 +43,8 @@ jobs:
           cd ThirdParty/fteqw
           git checkout 5662b3a
           cd ../../
-          ## Build FTEQCC
-          make fteqcc
+          ## Build FTEQW
+          make fteqw
 
           # Get Games
           git clone https://code.idtech.space/fn/valve.git valve
