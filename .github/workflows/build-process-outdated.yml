@@ -45,7 +45,6 @@ jobs:
           cd ../../
           ## Build FTEQCC
           make fteqcc
-          export PATH=$PATH:$GITHUB_WORKSPACE/nuclide/
 
           # Get Games
           git clone https://code.idtech.space/fn/valve.git valve
@@ -62,6 +61,7 @@ jobs:
       - name: Build Games
         run: |
           cd nuclide
+          export PATH=$PATH:$GITHUB_WORKSPACE/nuclide/
 
           # Build and Pack it to .pk*
           make dist-pak NAME=bin GAME="${{ inputs.game_name }}"
