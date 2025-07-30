@@ -50,7 +50,6 @@ jobs:
           make fteqcc
 
           # Get Games
-          cd ../
           git clone https://code.idtech.space/fn/valve.git -b Develop valve
           ## Checkout
           cd valve
@@ -69,7 +68,7 @@ jobs:
 
       - name: Build Games
         run: |
-          # cd nuclide
+          cd nuclide
           export PATH=$PATH:$GITHUB_WORKSPACE/nuclide/
 
           # Build and Pack it to .pk*
