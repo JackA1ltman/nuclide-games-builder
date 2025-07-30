@@ -22,6 +22,8 @@ on:
 jobs:
   build-nuclide-sdk-games:
     runs-on: ubuntu-latest
+    container:
+        images: data.forgejo.org/oci/node:20-bullseye
     timeout-minutes: 120
 
     steps:
