@@ -34,7 +34,7 @@ jobs:
           git clone https://code.idtech.space/vera/nuclide.git -b Develop nuclide
           cd nuclide
           ## Checkout
-          # git checkout 3114c1cef1
+          git checkout 7bfe67c3b5
 
           # Get FTEQCC
           mkdir ThirdParty
@@ -64,7 +64,7 @@ jobs:
           export PATH=$PATH:$GITHUB_WORKSPACE/nuclide/
 
           # Build and Pack it to .pk*
-          make dist-pak NAME=bin GAME=valve
+          # make dist-pak NAME=bin GAME=valve
           make dist-pak NAME=bin GAME="${{ inputs.game_name }}"
 
 
