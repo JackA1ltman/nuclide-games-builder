@@ -15,6 +15,9 @@ on:
       game_branch:
         required: false
         type: string
+      game_checkout:
+        required: false
+        type: string
 
 jobs:
   build-nuclide-sdk-games:
@@ -34,7 +37,7 @@ jobs:
           git clone https://code.idtech.space/vera/nuclide.git -b Develop nuclide
           cd nuclide
           ## Checkout
-          git checkout 7bfe67c3b5
+          git checkout 07d230983f
 
           # Get FTEQCC
           mkdir ThirdParty
@@ -54,6 +57,11 @@ jobs:
           cd ../
           if [[ -f "${{ inputs.game_branch }}" ]]; then
               git clone https://code.idtech.space/"${{ inputs.game_repo }}".git -b "${{ inputs.game_branch }}" "${{ inputs.game_name }}"
+              if [[ -f "${{ inputs.game_checkout }}" ]]; then
+                cd "${{ inputs.game_name }}"
+                git checkout "${{ inputs.game_checkout }}"
+                cd ../
+              fi
           else
               git clone https://code.idtech.space/"${{ inputs.game_repo }}".git "${{ inputs.game_name }}"
           fi

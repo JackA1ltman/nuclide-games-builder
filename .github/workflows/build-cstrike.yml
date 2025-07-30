@@ -17,3 +17,4 @@ jobs:
       game_repo: "fn/cstrike"
       game_name: "cstrike"
       game_branch: "Develop"
+      game_checkout: "38fb0a23b5"
