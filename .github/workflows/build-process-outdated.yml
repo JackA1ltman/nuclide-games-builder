@@ -50,7 +50,7 @@ jobs:
           git clone https://code.idtech.space/fn/valve.git valve
           ## Checkout
           cd valve
-          git checkout b0b370c9e1
+          git checkout 3924d63fcc
           cd ../
           if [[ -f "${{ inputs.game_branch }}" ]]; then
               git clone https://code.idtech.space/"${{ inputs.game_repo }}".git -b "${{ inputs.game_branch }}" "${{ inputs.game_name }}"
