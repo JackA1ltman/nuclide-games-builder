@@ -11,7 +11,7 @@ jobs:
   build-valve:
     strategy:
       fail-fast: true
-    uses: ./.github/workflows/build-process.yml
+    uses: ./.github/workflows/build-process-older.yml
     secrets: inherit
     with:
       game_repo: "fn/ts"
