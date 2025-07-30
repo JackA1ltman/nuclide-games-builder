@@ -28,17 +28,15 @@ jobs:
           # sudo apt install git make gcc -y
           # sudo apt install libpng-dev mesa-common-dev libvulkan-dev  libxtst-dev libxss-dev libxrandr-dev libxcursor-dev libasound2-dev libatopology-dev libjpeg-dev libspeex-dev libspeexdsp-dev libopus-dev libvorbis-dev libsdl2-dev autoconf automake libtool libavformat-dev libswscale-dev -y
 
-      - name: Git Engine from repo
+      - name: Git Games from repo
         run: |
+          # Get Nuclide SDK (eukara edition)
           git clone https://code.idtech.space/eukara/nuclide.git nuclide
           cd nuclide
+          ## Pull latest
           make update
-          echo "========================"
-          make fteqcc
-          export PATH=$PATH:$GITHUB_WORKSPACE/nuclide/
-          echo "========================"
-          # make fteqw
-          echo "========================"
+
+          # Get Games
           if [[ "${{ inputs.game_name }}" == "valve" ]]; then
             git clone https://code.idtech.space/"${{ inputs.game_repo }}".git "${{ inputs.game_name }}"
           else
@@ -49,7 +47,14 @@ jobs:
                 git clone https://code.idtech.space/"${{ inputs.game_repo }}".git "${{ inputs.game_name }}"
             fi
           fi
+
+      - name: Build Games
+        run: |
+          cd nuclide
+
+          # Build and Pack it to .pk*
           make dist-pak NAME=bin GAME="${{ inputs.game_name }}"
+
 
       - name: Upload Build Artifacts
         uses: actions/upload-artifact@v4
