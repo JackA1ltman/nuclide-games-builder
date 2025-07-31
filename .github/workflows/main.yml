@@ -40,6 +40,11 @@ on:
         required: true
         type: boolean
         default: false
+      build-gearbox:
+        description: 'Build Opposing Force ?'
+        required: true
+        type: boolean
+        default: false
 
 jobs:
   build-valve:
@@ -83,6 +88,13 @@ jobs:
     strategy:
       fail-fast: true
     if: ${{ inputs.build-ts }}
+
+  build-gearbox:
+    uses: ./.github/workflows/build-gearbox.yml
+    secrets: inherit
+    strategy:
+      fail-fast: true
+    if: ${{ inputs.build-gearbox }}
 
   release:
     runs-on: ubuntu-latest
