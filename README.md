@@ -16,6 +16,16 @@ This project will automate the compilation of games or engines built using Quake
 - **Step 3**: Move They Hunger mod folder to FTEQW, and unzip master.zip to They Hunger mod folder.
 - **Step 4**: Run `fteqw -halflife -game hunger` to launch the mod.
 
+## Games list
+| Games | Codename | Build Status | Version | Fork | Workflow |
+|-----------|-----------|-----------|-----------|-----------|-----------|
+| [Half-Life](https://code.idtech.space/fn/valve) | valve | ✅ | Latest | master | Normal |
+| [Half-Life 2](https://code.idtech.space/fn/hl2) | hl2 | ✅ | Latest | master | Normal |
+| [Team Fortress Classic](https://code.idtech.space/fn/tfc) | tfc | ✅ | Latest | master | Normal |
+| [Gunslinger Saga](https://code.idtech.space/fn/rewolf) | rewolf | ✅ | Latest | master | Normal |
+| [Counter-Strike 1.5](https://code.idtech.space/fn/cstrike) | cstrike | ❌ | Latest | Develop | Outdated |
+| [The Specialists](https://code.idtech.space/fn/ts) | ts | ❌ | Latest | master | Outdated |
+
 ## Copyright
 FTEQW: https://github.com/fte-team/fteqw  
 Nuclide-SDK: https://code.idtech.space/vera/nuclide  
