@@ -28,12 +28,16 @@ jobs:
 
     steps:
       - name: Install necessary packages
+        shell: bash
         run: |
+          # Install standard packages
           # sudo apt update
           # sudo apt install git make gcc pkg-config -y
+
+          # Install Libs
           # sudo apt install libpng-dev mesa-common-dev libvulkan-dev  libxtst-dev libxss-dev libxrandr-dev libxcursor-dev libasound2-dev libatopology-dev libjpeg-dev libspeex-dev libspeexdsp-dev libopus-dev libvorbis-dev libsdl2-dev autoconf automake libtool libavformat-dev libswscale-dev -y
 
-      - name: Git Games from repo
+      - name: Git Nuclide SDK and Build FTEQCC
         shell: bash
         run: |
           # Get Nuclide SDK (official edition)
@@ -42,7 +46,7 @@ jobs:
           ## Checkout
           git checkout 07d230983f
 
-          # Get FTEQCC
+          # Get and Build FTEQCC
           mkdir ThirdParty
           git clone https://github.com/fte-team/fteqw.git ThirdParty/fteqw
           ## Checkout
@@ -52,6 +56,9 @@ jobs:
           ## Build FTEQCC
           make fteqcc
 
+      - name: Git Games from repo
+        shell: bash
+        run: |
           # Get Games
           git clone https://code.idtech.space/fn/valve.git -b Develop valve
           ## Checkout
@@ -76,7 +83,7 @@ jobs:
           export PATH=$PATH:$GITHUB_WORKSPACE/nuclide/
 
           # Build and Pack it to .pk*
-          # make dist-pak NAME=bin GAME=valve
+          make dist-pak NAME=bin GAME=valve
           make dist-pak NAME=bin GAME="${{ inputs.game_name }}"
 
 

@@ -24,11 +24,14 @@ jobs:
     steps:
       - name: Install necessary packages
         run: |
+          # Install standard packages
           # sudo apt update
-          # sudo apt install git make gcc -y
+          # sudo apt install git make gcc pkg-config -y
+
+          # Install Libs
           # sudo apt install libpng-dev mesa-common-dev libvulkan-dev  libxtst-dev libxss-dev libxrandr-dev libxcursor-dev libasound2-dev libatopology-dev libjpeg-dev libspeex-dev libspeexdsp-dev libopus-dev libvorbis-dev libsdl2-dev autoconf automake libtool libavformat-dev libswscale-dev -y
 
-      - name: Git Games from repo
+      - name: Git Nuclide SDK and Build FTEQCC
         run: |
           # Get Nuclide SDK (eukara edition)
           git clone https://code.idtech.space/eukara/nuclide.git nuclide
@@ -39,6 +42,8 @@ jobs:
           # Build FTEQCC
           make fteqcc
 
+      - name: Git Games from repo
+        run: |
           # Get Games
           if [[ "${{ inputs.game_name }}" == "valve" ]]; then
             git clone https://code.idtech.space/"${{ inputs.game_repo }}".git "${{ inputs.game_name }}"
