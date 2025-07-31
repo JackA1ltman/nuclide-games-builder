@@ -31,14 +31,14 @@ jobs:
         shell: bash
         run: |
           # Install standard packages
-          sudo apt update
-          # sudo apt install git make gcc pkg-config -y
+          apt update
+          # apt install git make gcc pkg-config -y
 
           # Install ZIP
-          sudo apt install zip -y
+          apt install zip -y
 
           # Install Libs
-          # sudo apt install libpng-dev mesa-common-dev libvulkan-dev  libxtst-dev libxss-dev libxrandr-dev libxcursor-dev libasound2-dev libatopology-dev libjpeg-dev libspeex-dev libspeexdsp-dev libopus-dev libvorbis-dev libsdl2-dev autoconf automake libtool libavformat-dev libswscale-dev -y
+          # apt install libpng-dev mesa-common-dev libvulkan-dev  libxtst-dev libxss-dev libxrandr-dev libxcursor-dev libasound2-dev libatopology-dev libjpeg-dev libspeex-dev libspeexdsp-dev libopus-dev libvorbis-dev libsdl2-dev autoconf automake libtool libavformat-dev libswscale-dev -y
 
       - name: Git Nuclide SDK and Build FTEQCC
         shell: bash
