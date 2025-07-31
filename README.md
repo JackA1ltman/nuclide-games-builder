@@ -25,7 +25,7 @@ This project will automate the compilation of games or engines built using Quake
 | [Gunslinger Saga](https://code.idtech.space/fn/rewolf) | rewolf | ✅ | Latest | master | Normal |
 | [Counter-Strike 1.5](https://code.idtech.space/fn/cstrike) | cstrike | ❌ | Latest | Develop | Outdated |
 | [The Specialists](https://code.idtech.space/fn/ts) | ts | ❌ | Latest | master | Outdated |
-| [Opposing Force](https://code.idtech.space/fn/gearbox) | gearbox | ❌ | Latest | Develop | Normal |
+| [Opposing Force](https://code.idtech.space/fn/gearbox) | gearbox | ❌ | Latest | Develop | Outdated |
 
 ## Copyright
 FTEQW: https://github.com/fte-team/fteqw  
