@@ -44,6 +44,8 @@ jobs:
 
       - name: Git Games from repo
         run: |
+          cd nuclide
+
           # Get Games
           if [[ "${{ inputs.game_name }}" == "valve" ]]; then
             git clone https://code.idtech.space/"${{ inputs.game_repo }}".git "${{ inputs.game_name }}"

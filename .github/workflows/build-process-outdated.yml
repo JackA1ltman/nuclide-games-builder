@@ -59,6 +59,8 @@ jobs:
       - name: Git Games from repo
         shell: bash
         run: |
+          cd nuclide
+
           # Get Games
           git clone https://code.idtech.space/fn/valve.git -b Develop valve
           ## Checkout
