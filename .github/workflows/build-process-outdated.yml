@@ -83,8 +83,12 @@ jobs:
           export PATH=$PATH:$GITHUB_WORKSPACE/nuclide/
 
           # Build and Pack it to .pk*
-          make dist-pak NAME=bin GAME=valve
-          make dist-pak NAME=bin GAME="${{ inputs.game_name }}"
+          if [[ "${{ inputs.game_name }}" == "valve" ]]; then
+            make dist-pak NAME=bin GAME=valve
+          else
+            make dist-pak NAME=bin GAME=valve
+            make dist-pak NAME=bin GAME="${{ inputs.game_name }}"
+          fi
 
 
       - name: Upload Build Artifacts
