@@ -11,10 +11,8 @@ jobs:
   build-valve:
     strategy:
       fail-fast: true
-    uses: ./.github/workflows/build-process-outdated.yml
+    uses: ./.github/workflows/build-process.yml
     secrets: inherit
     with:
       game_repo: "fn/cstrike"
       game_name: "cstrike"
-      game_branch: "Develop"
-      game_checkout: "38fb0a23b5"
