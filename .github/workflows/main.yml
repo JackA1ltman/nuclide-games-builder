@@ -34,7 +34,7 @@ on:
         description: 'Build Counter-Strike 1.5 ?'
         required: true
         type: boolean
-        default: false
+        default: true
       build-ts:
         description: 'Build The Specialists ?'
         required: true
@@ -143,6 +143,7 @@ jobs:
           | Half-Life 2 | hl2 |
           | Team Fortress Classic | tfc |
           | Gunslinger Saga | rewolf |
+          | Counter-Strike 1.5 | cstrike |
 
           EOF
 

@@ -23,7 +23,7 @@ This project will automate the compilation of games or engines built using Quake
 | [Half-Life 2](https://code.idtech.space/fn/hl2) | hl2 | ✅ | Latest | master | Normal |
 | [Team Fortress Classic](https://code.idtech.space/fn/tfc) | tfc | ✅ | Latest | master | Normal |
 | [Gunslinger Saga](https://code.idtech.space/fn/rewolf) | rewolf | ✅ | Latest | master | Normal |
-| [Counter-Strike 1.5](https://code.idtech.space/fn/cstrike) | cstrike | ❌ | Latest | master | Normal |
+| [Counter-Strike 1.5](https://code.idtech.space/fn/cstrike) | cstrike | ✅ | Latest | master | Normal |
 | [The Specialists](https://code.idtech.space/fn/ts) | ts | ❌ | Latest | master | Outdated |
 | [Opposing Force](https://code.idtech.space/fn/gearbox) | gearbox | ❌ | Latest | Develop | Outdated |
 
