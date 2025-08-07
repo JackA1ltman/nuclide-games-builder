@@ -6,8 +6,6 @@ permissions:
 
 on:
   workflow_dispatch:
-    schedule:
-        - cron: '0 3 * * 3'
 
     inputs:
       build-valve:
@@ -45,6 +43,10 @@ on:
         required: true
         type: boolean
         default: false
+
+  schedule:
+
+    - cron: '22 7 * * 4'
 
 jobs:
   build-valve:
