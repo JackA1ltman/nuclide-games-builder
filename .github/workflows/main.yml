@@ -46,7 +46,7 @@ on:
 
   schedule:
 
-    - cron: '22 7 * * 4'
+    - cron: '25 7 * * 4'
 
 jobs:
   build-valve:
