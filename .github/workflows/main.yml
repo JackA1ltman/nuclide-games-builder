@@ -20,19 +20,19 @@ on:
         default: true
       build-tfc:
         description: 'Build Team Fortress ?'
-        required: false
+        required: true
         type: boolean
-        default: true
+        default: false
       build-rewolf:
         description: 'Build Gunslinger Saga ?'
         required: true
         type: boolean
-        default: true
+        default: false
       build-cstrike:
         description: 'Build Counter-Strike 1.5 ?'
         required: true
         type: boolean
-        default: true
+        default: false
       build-ts:
         description: 'Build The Specialists ?'
         required: true
@@ -103,7 +103,6 @@ jobs:
     needs:
       - build-valve
       - build-hl2
-      - build-rewolf
     env:
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       RELEASE_NAME: "Nuclide SDK Games"
