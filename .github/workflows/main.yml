@@ -20,7 +20,7 @@ on:
         default: true
       build-tfc:
         description: 'Build Team Fortress ?'
-        required: true
+        required: false
         type: boolean
         default: true
       build-rewolf:
@@ -54,56 +54,55 @@ jobs:
     secrets: inherit
     strategy:
       fail-fast: true
-    if: ${{ inputs.build-valve }}
+    if: github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' &&  inputs.build-valve == true )
 
   build-hl2:
     uses: ./.github/workflows/build-hl2.yml
     secrets: inherit
     strategy:
       fail-fast: true
-    if: ${{ inputs.build-hl2 }}
+    if: github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && inputs.build-hl2 == true )
 
   build-tfc:
     uses: ./.github/workflows/build-tfc.yml
     secrets: inherit
     strategy:
       fail-fast: true
-    if: ${{ inputs.build-tfc }}
+    if: github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && inputs.build-tfc == true )
 
   build-rewolf:
     uses: ./.github/workflows/build-rewolf.yml
     secrets: inherit
     strategy:
       fail-fast: true
-    if: ${{ inputs.build-rewolf }}
+    if: github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && inputs.build-rewolf == true )
 
   build-cstrike:
     uses: ./.github/workflows/build-cstrike.yml
     secrets: inherit
     strategy:
       fail-fast: true
-    if: ${{ inputs.build-cstrike }}
+    if: github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && inputs.build-cstrike == true )
 
   build-ts:
     uses: ./.github/workflows/build-ts.yml
     secrets: inherit
     strategy:
       fail-fast: true
-    if: ${{ inputs.build-ts }}
+    if: github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && inputs.build-ts == true )
 
   build-gearbox:
     uses: ./.github/workflows/build-gearbox.yml
     secrets: inherit
     strategy:
       fail-fast: true
-    if: ${{ inputs.build-gearbox }}
+    if: github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && inputs.build-gearbox == true )
 
   release:
     runs-on: ubuntu-latest
     needs:
       - build-valve
       - build-hl2
-      - build-tfc
       - build-rewolf
     env:
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
