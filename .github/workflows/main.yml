@@ -68,35 +68,35 @@ jobs:
     secrets: inherit
     strategy:
       fail-fast: true
-    if: github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && inputs.build-tfc == true )
+    if: (github.event_name == 'workflow_dispatch' && inputs.build-tfc == true )
 
   build-rewolf:
     uses: ./.github/workflows/build-rewolf.yml
     secrets: inherit
     strategy:
       fail-fast: true
-    if: github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && inputs.build-rewolf == true )
+    if: (github.event_name == 'workflow_dispatch' && inputs.build-rewolf == true )
 
   build-cstrike:
     uses: ./.github/workflows/build-cstrike.yml
     secrets: inherit
     strategy:
       fail-fast: true
-    if: github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && inputs.build-cstrike == true )
+    if: (github.event_name == 'workflow_dispatch' && inputs.build-cstrike == true )
 
   build-ts:
     uses: ./.github/workflows/build-ts.yml
     secrets: inherit
     strategy:
       fail-fast: true
-    if: github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && inputs.build-ts == true )
+    if: (github.event_name == 'workflow_dispatch' && inputs.build-ts == true )
 
   build-gearbox:
     uses: ./.github/workflows/build-gearbox.yml
     secrets: inherit
     strategy:
       fail-fast: true
-    if: github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && inputs.build-gearbox == true )
+    if: (github.event_name == 'workflow_dispatch' && inputs.build-gearbox == true )
 
   release:
     runs-on: ubuntu-latest
