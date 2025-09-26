@@ -67,6 +67,11 @@ jobs:
           # Build and Pack it to .pk*
           make dist-pak NAME=bin GAME="${{ inputs.game_name }}"
 
+      - name: Detect additional valve pk4
+        if: inputs.game_name != 'valve'
+        run: |
+          cd nuclide/build/bin-content/${{ inputs.game_name }}/
+          rm -f package_valve.pk4
 
       - name: Upload Build Artifacts
         uses: actions/upload-artifact@v4

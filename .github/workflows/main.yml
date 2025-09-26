@@ -160,9 +160,6 @@ jobs:
         run: |
           for file in ./downloaded-artifacts/game-*/*; do
             if [ -d "$file" ]; then
-              if [ -f "game-cstrike/package_valve.pk4" ]; then
-                rm -f ./downloaded-artifacts/game-cstrike/package_valve.pk4
-              fi
               continue
             fi
             echo "Uploading $file..."
