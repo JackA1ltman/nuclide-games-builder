@@ -17,7 +17,7 @@ This project will automate the compilation of games or engines built using Quake
 - **Step 4**: Run `fteqw -halflife -game hunger` to launch the mod.
 
 ## Games list
-| Games | Codename | Build Status | Version | Fork | Workflow |
+| Games/Mods | Codename | Build Status | Version | Fork | Workflow |
 |-----------|-----------|-----------|-----------|-----------|-----------|
 | [Half-Life](https://code.idtech.space/fn/valve) | valve | ✅ | Latest | master | Normal |
 | [Half-Life 2](https://code.idtech.space/fn/hl2) | hl2 | ✅ | Latest | master | Normal |

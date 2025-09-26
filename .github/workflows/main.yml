@@ -137,7 +137,7 @@ jobs:
         run: |
           cat << 'EOF' > release_body.md
 
-          | Games | Codename |
+          | Games/Mods | Codename |
           |-----------|-----------|
           | Half-Life | valve |
           | Half-Life 2 | hl2 |
