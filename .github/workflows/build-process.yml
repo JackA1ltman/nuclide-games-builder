@@ -47,10 +47,13 @@ jobs:
           cd nuclide
 
           # Get Games
-          if [[ "${{ inputs.game_name }}" == "valve" ]]; then
+          if [[ "${{ inputs.game_name }}" == "valve" ]] || [[ "${{ inputs.game_name }}" == "hl2" ]]; then
             git clone https://code.idtech.space/"${{ inputs.game_repo }}".git "${{ inputs.game_name }}"
           else
-            git clone https://code.idtech.space/fn/valve.git valve
+            if [[ "${{ inputs.game_name }}" == "valve" ]] || [[ "${{ inputs.game_name }}" == "hl2" ]]; then
+                git clone https://code.idtech.space/fn/"${{ inputs.game_repo }}".git "${{ inputs.game_name }}"
+            fi
+
             if [[ -f "${{ inputs.game_branch }}" ]]; then
                 git clone https://code.idtech.space/"${{ inputs.game_repo }}".git -b "${{ inputs.game_branch }}" "${{ inputs.game_name }}"
             else
@@ -68,10 +71,13 @@ jobs:
           make dist-pak NAME=bin GAME="${{ inputs.game_name }}"
 
       - name: Detect additional valve pk4
-        if: inputs.game_name != 'valve'
         run: |
           cd nuclide/build/bin-content/${{ inputs.game_name }}/
-          rm -f package_valve.pk4
+
+          if [[ "${{ inputs.game_name }}" == "valve" ]] || [[ "${{ inputs.game_name }}" == "hl2" ]]; then
+            rm -f package_"${{ inputs.game_name }}".pk4
+            echo "Removed repeated game pk4 file."
+          fi
 
       - name: Upload Build Artifacts
         uses: actions/upload-artifact@v4

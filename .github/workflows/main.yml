@@ -108,7 +108,7 @@ jobs:
       fail-fast: true
     if: (github.event_name == 'workflow_dispatch' && inputs.build-gearbox == true )
 
-  builds-cihunt:
+  builds-scihunt:
     uses: ./.github/workflows/build-scihunt.yml
     secrets: inherit
     strategy:
