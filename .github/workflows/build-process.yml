@@ -63,6 +63,10 @@ jobs:
                 git clone https://code.idtech.space/fn/valve.git valve
             fi
 
+            if [[ "${{ inputs.game_base }}" == "css" ]]; then
+                git clone https://code.idtech.space/fn/cstrike.git cstrike
+            fi
+
             if [[ -f "${{ inputs.game_branch }}" ]]; then
                 git clone https://code.idtech.space/"${{ inputs.game_repo }}".git -b "${{ inputs.game_branch }}" "${{ inputs.game_name }}"
             else
@@ -84,7 +88,13 @@ jobs:
           cd nuclide/build/bin-content/${{ inputs.game_name }}/
 
           if [[ "${{ inputs.game_name }}" == "valve" ]] || [[ "${{ inputs.game_name }}" == "hl2" ]]; then
-            rm -f package_"${{ inputs.game_name }}".pk4
+            rm -f package_valve.pk4
+            rm -f package_hl2.pk4
+            echo "Removed repeated game pk4 file."
+          fi
+
+          if [[ "${{ inputs.game_name }}" == "css" ]]; then
+            rm -f package_cstrike
             echo "Removed repeated game pk4 file."
           fi
 
