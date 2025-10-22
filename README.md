@@ -26,6 +26,8 @@ This project will automate the compilation of games or engines built using Quake
 | [Counter-Strike 1.5](https://code.idtech.space/fn/cstrike) | cstrike | ✅ | Latest | master | Normal |
 | [The Specialists](https://code.idtech.space/fn/ts) | ts | ❌ | Latest | master | Outdated |
 | [Opposing Force](https://code.idtech.space/fn/gearbox) | gearbox | ❌ | Latest | Develop | Outdated |
+| [Scientist Hunt](https://code.idtech.space/fn/scihunt) | scihunt | ✅ | Latest | master | Normal |
+| [Counter Strike Source](https://code.idtech.space/fn/css) | css | ✅ | Latest | master | Normal |
 
 ## Copyright
 FTEQW: https://github.com/fte-team/fteqw  
