@@ -16,3 +16,4 @@ jobs:
     with:
       game_repo: "fn/css"
       game_name: "css"
+      game_name: "hl2"
