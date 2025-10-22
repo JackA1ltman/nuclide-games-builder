@@ -63,7 +63,7 @@ jobs:
                 git clone https://code.idtech.space/fn/valve.git valve
             fi
 
-            if [[ "${{ inputs.game_base }}" == "css" ]]; then
+            if [[ "${{ inputs.game_name }}" == "css" ]]; then
                 git clone https://code.idtech.space/fn/cstrike.git cstrike
             fi
 
