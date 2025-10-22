@@ -50,10 +50,14 @@ jobs:
           cd nuclide
 
           # Get Games
-          if [[ "${{ inputs.game_name }}" == "valve" ]] || [[ "${{ inputs.game_name }}" == "hl2" ]]; then
+          if [[ "${{ inputs.game_name }}" == "valve" ]]; then
+            git clone https://code.idtech.space/"${{ inputs.game_repo }}".git "${{ inputs.game_name }}"
+          elif [[ "${{ inputs.game_name }}" == "hl2" ]]; then
+            git clone https://code.idtech.space/fn/valve.git valve
             git clone https://code.idtech.space/"${{ inputs.game_repo }}".git "${{ inputs.game_name }}"
           else
             if [[ "${{ inputs.game_base }}" == "hl2" ]]; then
+                git clone https://code.idtech.space/fn/valve.git valve
                 git clone https://code.idtech.space/fn/hl2.git hl2
             else
                 git clone https://code.idtech.space/fn/valve.git valve
