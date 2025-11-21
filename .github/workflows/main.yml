@@ -38,11 +38,6 @@ on:
         required: true
         type: boolean
         default: false
-      build-gearbox:
-        description: 'Build Opposing Force ?'
-        required: true
-        type: boolean
-        default: false
       build-scihunt:
         description: 'Build Scientist Hunt ?'
         required: false
@@ -110,13 +105,6 @@ jobs:
     strategy:
       fail-fast: true
     if: (github.event_name == 'workflow_dispatch' && inputs.build-ts == true )
-
-  build-gearbox:
-    uses: ./.github/workflows/build-gearbox.yml
-    secrets: inherit
-    strategy:
-      fail-fast: true
-    if: (github.event_name == 'workflow_dispatch' && inputs.build-gearbox == true )
 
   builds-scihunt:
     uses: ./.github/workflows/build-scihunt.yml
