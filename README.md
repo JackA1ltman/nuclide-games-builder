@@ -28,6 +28,8 @@ This project will automate the compilation of games or engines built using Quake
 | [Opposing Force](https://code.idtech.space/fn/gearbox) | gearbox | ❌ | Latest | Develop | Outdated |
 | [Scientist Hunt](https://code.idtech.space/fn/scihunt) | scihunt | ✅ | Latest | master | Normal |
 | [Counter Strike Source](https://code.idtech.space/fn/css) | css | ✅ | Latest | master | Normal |
+| [Deathmatch Classic](https://code.idtech.space/fn/dmc) | dmc | ✅ | Latest | master | Normal |
+| [Zombie Panic!](https://code.idtech.space/fn/zp) | zp | ✅ | Latest | master | Normal |
 
 ## Copyright
 FTEQW: https://github.com/fte-team/fteqw  

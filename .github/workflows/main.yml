@@ -53,6 +53,16 @@ on:
         required: false
         type: boolean
         default: true
+      build-dmc:
+        description: 'Build Deathmatch Classic ?'
+        required: false
+        type: boolean
+        default: true
+      build-zp:
+        description: 'Build Zombie Panic ?'
+        required: false
+        type: boolean
+        default: true
 
   schedule:
 
@@ -122,6 +132,20 @@ jobs:
       fail-fast: true
     if: (github.event_name == 'workflow_dispatch' && inputs.build-css == true )
 
+  build-dmc:
+    uses: ./.github/workflows/build-dmc.yml
+    secrets: inherit
+    strategy:
+      fail-fast: true
+    if: (github.event_name == 'workflow_dispatch' && inputs.build-css == true )
+
+  build-zp:
+    uses: ./.github/workflows/build-zp.yml
+    secrets: inherit
+    strategy:
+      fail-fast: true
+    if: (github.event_name == 'workflow_dispatch' && inputs.build-css == true )
+
   release:
     runs-on: ubuntu-latest
     needs:
@@ -170,6 +194,8 @@ jobs:
           | Counter-Strike 1.5 | cstrike |
           | Scientist Hunt | scihunt |
           | Counter Strike Source | css |
+          | Deathmatch Classic | dmc |
+          | Zombie Panic! | zp |
 
           EOF
 
