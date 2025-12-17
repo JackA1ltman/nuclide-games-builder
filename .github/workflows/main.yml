@@ -59,10 +59,6 @@ on:
         type: boolean
         default: true
 
-  schedule:
-
-    - cron: '25 7 * * 4'
-
 jobs:
   build-valve:
     uses: ./.github/workflows/build-valve.yml
